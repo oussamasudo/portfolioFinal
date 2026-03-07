@@ -7,16 +7,10 @@ export async function POST(req: Request) {
 
   const { name, email, subject, message } = await req.json();
 
-  const apiKey = process.env.RESEND_API_KEY;
-
-  if (!apiKey) {
-    return Response.json({ error: "Missing API key" }, { status: 500 });
-  }
-
-  const resend = new Resend(apiKey);
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const data = await resend.emails.send({
-    from: "Portfolio <onboarding@resend.dev>",
+    from: "onboarding@resend.dev",
     to: ["oussamahafdoune6@gmail.com"],
     subject,
     html: `
