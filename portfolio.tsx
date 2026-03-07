@@ -73,52 +73,41 @@ export default function DeveloperPortfolio() {
   ]
 
   const projects = [
-    {
-      title: "I.M.M",
-      description: "The Industrial Machine Maintenance System is an application that manages machine operations, maintenance requests, and work orders. It allows users to track machine performance, create maintenance tasks, and schedule work efficiently, ensuring timely resolutions and reducing downtime.",
-image: "/Screenshot 2024-06-12 at 21.57.23.png"
-, // Chemin vers votre image
-      technologies: ["React", "next ", "MySql"], // Vos vraies technologies
-      github: "https://github.com/oussamasudo/IMM", // Votre vrai lien GitHub
-      live: "https://votre-projet1.com", // Votre vrai lien de démo
-  icon: <Factory className="h-6 w-6" />
+  {
+    title: "I.M.M",
+    description:
+      "The Industrial Machine Maintenance System is an application that manages machine operations, maintenance requests, and work orders.",
+    image: "IMM.png",
+    technologies: ["React", "Next.js", "MySQL"],
+    github: "https://github.com/oussamasudo/IMM",
+    live: "https://votre-projet1.com",
+    icon: <Factory className="h-6 w-6" />,
+  },
 
-    },
-    {
-  title: "E-library",
-  description: "E-library is a web-based learning platform designed to facilitate online education. It features interactive videos, quizzes, and a robust progress tracking system to enhance the learning experience. The app is ideal for students, educators, and lifelong learners looking to access educational content and track their growth effectively on any device.",
-  image: "/OLP-pica.png",
-  technologies: ["React", "Firebase", "Redux", "Next.js"],
-  github: "https://github.com/votre-username/elearning-app",
-  live: "https://votre-projet1.com", // Update with your actual demo link
-  icon: <Book className="h-6 w-6" />, // Book icon still appropriate for educational context
+  {
+    title: "Heritage Artisan AI",
+    description:
+      "Deep Learning application that classifies Moroccan artisanal products from images. Users upload a photo and the AI predicts the craft category.",
+    image: "heritageai.png",
+    technologies: ["Python", "PyTorch", "CNN", "FastAPI", "Next.js"],
+    github: "https://github.com/oussamasudo/artisanat-frontend",
+    live: "https://heritageartisanatai.vercel.app/",
+    icon: <Brain className="h-6 w-6" />,
+  },
+
+ {
+  title: "Machine Learning Pipeline App",
+  description:
+    "Interactive Machine Learning application built with Streamlit that demonstrates the complete ML workflow including data preprocessing, feature selection, model training, and evaluation. Users can experiment with different algorithms and visualize model performance.",
+  image: "MLapp.png",
+  technologies: ["Python", "Streamlit", "Scikit-learn", "Pandas", "Matplotlib"],
+  github: "https://github.com/oussamasudo/machine-learning-streamlit-app",
+  live: "https://machine-learn.streamlit.app/",
+  icon: <Cpu className="h-6 w-6" />,
 },
 
-
-    {
-      title: "Application Mobile E-Learning",
-      description: "App mobile pour l'apprentissage en ligne avec vidéos, quiz interactifs et suivi de progression.",
-image: "/OLP-pica.png",
-      technologies: ["React Native", "Firebase", "Redux", "Expo"],
-      github: "https://github.com/votre-username/elearning-app",
-      live: "https://play.google.com/store/apps/details?id=com.votre.app",
-      icon: <Smartphone className="h-6 w-6" />,
-    },
-    // Ajoutez autant de projets que vous voulez
-
-
-    {
-      title: "SME WALLET",
-      description: "SME WALLET is a comprehensive financial management application tailored for small and medium-sized enterprises (SMEs). It offers features such as expense tracking, invoicing, budgeting, and financial reporting, enabling businesses to manage their finances efficiently and make informed decisions to drive growth.",
-image: ""
-, // Chemin vers votre image
-      technologies: ["React", "next ", "MySql"], // Vos vraies technologies
-      github: "https://github.com/oussamasudo/IMM", // Votre vrai lien GitHub
-      live: "https://votre-projet1.com", // Votre vrai lien de démo
-  icon: <CreditCard className="h-6 w-6" />
-
-    },
-  ]
+  
+];
 
   
 
@@ -482,55 +471,84 @@ I enjoy solving complex problems with clean and efficient code, contributing to 
 
       {/* Projects Section */}
       <section id="projects" className="py-16 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-bold text-center mb-12 font-mono text-primary">{"/* Projets */"}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {projects.map((project, index) => (
-              <Card
-                key={index}
-                className="overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all hover:animate-glow"
-              >
-                <div className="aspect-video relative bg-gradient-to-br from-primary/20 to-purple-900/20 flex items-center justify-center">
-                  <div className="text-primary text-6xl opacity-50 animate-float">{project.icon}</div>
-                </div>
-                <CardHeader>
-                  <CardTitle className="font-mono text-primary">{project.title}</CardTitle>
-                  <CardDescription>{project.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs border-primary/30 text-primary font-mono">
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="flex space-x-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-primary text-primary hover:bg-primary/10 font-mono"
-                      asChild
-                    >
-                         <Link href="https://github.com/oussamasudo" aria-label="GitHub">
+  <div className="container mx-auto">
+    <h2 className="text-3xl font-bold text-center mb-12 font-mono text-primary">
+      {"/* Projets */"}
+    </h2>
 
-                        <Github className="h-4 w-4 mr-1" />
-                        Code
-                      </Link>
-                    </Button>
-                    <Button size="sm" className="bg-primary hover:bg-primary/80 font-mono" asChild>
-                      <Link href={project.live}>
-                        <ExternalLink className="h-4 w-4 mr-1" />
-                        Demo
-                      </Link>
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+    <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {projects.map((project, index) => (
+        <Card
+          key={index}
+          className="overflow-hidden bg-card border-primary/20 hover:border-primary/50 transition-all hover:animate-glow"
+        >
+
+          {/* Image du projet */}
+          <div className="aspect-video relative overflow-hidden">
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
           </div>
-        </div>
-      </section>
+
+          <CardHeader>
+            <CardTitle className="font-mono text-primary">
+              {project.title}
+            </CardTitle>
+            <CardDescription>
+              {project.description}
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            {/* Technologies */}
+            <div className="flex flex-wrap gap-2 mb-4">
+              {project.technologies.map((tech) => (
+                <Badge
+                  key={tech}
+                  variant="outline"
+                  className="text-xs border-primary/30 text-primary font-mono"
+                >
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+
+            {/* Buttons */}
+            <div className="flex space-x-2">
+
+              <Button
+                size="sm"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary/10 font-mono"
+                asChild
+              >
+                <Link href={project.github} target="_blank">
+                  <Github className="h-4 w-4 mr-1" />
+                  Code
+                </Link>
+              </Button>
+
+              <Button
+                size="sm"
+                className="bg-primary hover:bg-primary/80 font-mono"
+                asChild
+              >
+                <Link href={project.live} target="_blank">
+                  <ExternalLink className="h-4 w-4 mr-1" />
+                  Demo
+                </Link>
+              </Button>
+
+            </div>
+          </CardContent>
+
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Stats Section */}
       <section className="py-16 px-4 bg-secondary/50">
@@ -602,7 +620,7 @@ I enjoy solving complex problems with clean and efficient code, contributing to 
                     </Link>
                   </Button>
                   <Button variant="outline" size="icon" className="border-primary hover:bg-primary/10" asChild>
-                    <Link href="/cv_crr.pdf" aria-label="">
+                    <Link href="/cv de carrier.pdf" aria-label="CV">
                       <File className="h-5 w-5" />
                     </Link>
                   </Button>
