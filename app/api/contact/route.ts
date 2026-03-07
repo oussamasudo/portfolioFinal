@@ -4,20 +4,22 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export async function POST(req: Request) {
-  const apiKey = process.env.RESEND_API_KEY;
-
-  if (!apiKey) {
-    throw new Error("RESEND_API_KEY is missing");
-  }
-
-  const resend = new Resend(apiKey);
 
   const { name, email, subject, message } = await req.json();
+
+  if (!process.env.RESEND_API_KEY) {
+    return Response.json(
+      { error: "Missing RESEND_API_KEY" },
+      { status: 500 }
+    );
+  }
+
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const data = await resend.emails.send({
     from: "Portfolio <onboarding@resend.dev>",
     to: ["oussamahafdoune6@gmail.com"],
-    subject,
+    subject: subject,
     html: `
       <h3>New message from portfolio</h3>
       <p><strong>Name:</strong> ${name}</p>
